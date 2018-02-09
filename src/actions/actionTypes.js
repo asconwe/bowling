@@ -1,0 +1,2 @@
+export const APPLY_ROLL_SCORE = 'APPLY_ROLL_SCORE';
+export const ADVANCE_FRAME = 'ADVANCE_FRAME';
