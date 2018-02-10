@@ -1,16 +1,17 @@
 export default {
+	mostRecentRollScore: undefined;
 	currentFrameIndex: 0,
 	currentRollIndex: 0,
 	frames: [
-		[0, 0, 0], 
-		[0, 0, 0],
-		[0, 0, 0], 
-		[0, 0, 0],
-		[0, 0, 0], 
-		[0, 0, 0],
-		[0, 0, 0], 
-		[0, 0, 0],
-		[0, 0, 0], 
-		[0, 0, 0],
+		[undefined, undefined, undefined], 
+		[undefined, undefined, undefined],
+		[undefined, undefined, undefined], 
+		[undefined, undefined, undefined],
+		[undefined, undefined, undefined], 
+		[undefined, undefined, undefined],
+		[undefined, undefined, undefined], 
+		[undefined, undefined, undefined],
+		[undefined, undefined, undefined], 
+		[undefined, undefined, undefined],
 	],
 }
