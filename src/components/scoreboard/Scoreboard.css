@@ -1,0 +1,25 @@
+.scoreBoard {
+    width: 100%;
+    vertical-align: text-top;
+    position: relative;
+}
+
+.frame {
+    width: 10%;
+    float: left;
+}
+
+.roll {
+    border: solid 1px black;
+    height: 100px;
+}
+
+/* .roll.first {
+}
+
+.roll.second {
+} */
+
+.text {
+    display: block;
+}
