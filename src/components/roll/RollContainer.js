@@ -14,7 +14,7 @@ class RollContainer extends React.Component {
 
     rollBowlingBall() {
         this.props.onKnockDownSomePins(Math.random(), this.props.currentFrame);
-        this.props.onApplyRollScore(this.props.rollScore, this.props.currentFrame);
+        this.props.onApplyRollScore(this.props.currentFrame);
     }
 
     render() {

@@ -1,9 +1,8 @@
 import {APPLY_ROLL_SCORE, KNOCK_DOWN_SOME_PINS } from './actionTypes';
 
-export function applyRollScore(score, frameIndex) {
+export function applyRollScore(frameIndex) {
 	return {
 		type: APPLY_ROLL_SCORE, 
-        score,
         frameIndex,
 	}
 }
