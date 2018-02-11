@@ -1,4 +1,4 @@
-import {APPLY_ROLL_SCORE, ADVANCE_FRAME, KNOCK_DOWN_SOME_PINS } from './actionTypes';
+import {APPLY_ROLL_SCORE, KNOCK_DOWN_SOME_PINS } from './actionTypes';
 
 export function applyRollScore(score, frameIndex) {
 	return {
@@ -6,12 +6,6 @@ export function applyRollScore(score, frameIndex) {
         score,
         frameIndex,
 	}
-}
-
-export function advanceFrame() {
-    return {
-        type: ADVANCE_FRAME,
-    }
 }
 
 export function knockDownSomePins(randomFloat, currentFrameScore) {

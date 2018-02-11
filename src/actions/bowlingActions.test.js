@@ -1,5 +1,5 @@
 import * as actions from './bowlingActions'
-import { ADVANCE_FRAME, APPLY_ROLL_SCORE, KNOCK_DOWN_SOME_PINS } from './actionTypes';
+import { APPLY_ROLL_SCORE, KNOCK_DOWN_SOME_PINS } from './actionTypes';
 
 describe('actions', () => {
     it('should create an action apply a score to a roll', () => {
@@ -11,13 +11,6 @@ describe('actions', () => {
             frameIndex
         }
         expect(actions.applyRollScore(5, 4)).toEqual(expectedAction)
-    });
-
-    it('should create an action to advance to the next frame', () => {
-        const expectedAction = {
-            type: ADVANCE_FRAME
-        }
-        expect(actions.advanceFrame()).toEqual(expectedAction)
     });
 
     it('should create an action knock down some pins', () => {

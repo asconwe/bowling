@@ -1,11 +1,8 @@
 import initialState from './initialState';
-import { ADVANCE_FRAME, APPLY_ROLL_SCORE, KNOCK_DOWN_SOME_PINS } from '../actions/actionTypes';
+import { APPLY_ROLL_SCORE, KNOCK_DOWN_SOME_PINS } from '../actions/actionTypes';
 
 export default function bowling(state = initialState, action) {
     switch (action.type) {
-        case ADVANCE_FRAME:
-            const currentFrameIndex = state.currentFrameIndex + 1;
-            return Object.assign({}, state, { currentFrameIndex });
 
         case APPLY_ROLL_SCORE:
             const frameIndex = action.frameIndex;

@@ -14,6 +14,6 @@ class BowlContainer extends Component {
 }
 
 const mapStateToProps = ({ frames, currentFrameIndex }) => ({ frames, currentFrameIndex });
-const mapDispatchToProps = ({ APPLY_ROLL_SCORE, ADVANCE_FRAME }) => ({ APPLY_ROLL_SCORE, ADVANCE_FRAME })
+const mapDispatchToProps = ({ APPLY_ROLL_SCORE }) => ({ APPLY_ROLL_SCORE })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BowlContainer)
