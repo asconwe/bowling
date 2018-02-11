@@ -3,7 +3,7 @@ import React from 'react';
 export default (props) => {
     return (
         <div>
-            <button onClick={props.rollBall}>Roll!</button>
+            <button onClick={props.onClick}>Roll!</button>
         </div>
     )
 }
