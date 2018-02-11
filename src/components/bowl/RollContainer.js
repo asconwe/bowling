@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import RollButton from './RollButton';
 import { knockDownSomePins } from './bowlingFunctions';
+import getCurrentFrame from './getCurrentFrame';
 
 class RollContainer extends React.Component {
     constructor(props) {
@@ -19,6 +20,12 @@ class RollContainer extends React.Component {
     }
 }
 
+const mapStateToProps = ({ frames }) => {
+    return {
+        currentFrame: getCurrentFrame(frames)
+    }
+}
+
 const mapDispatchToProps = ({ knockDownSomePins }) => ({ knockDownSomePins });
 
-export default connect(null, mapDispatchToProps);
+export default connect(mapStateToProps, mapDispatchToProps);
