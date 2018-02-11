@@ -8,9 +8,10 @@ export function applyRollScore(score, frameIndex) {
 	}
 }
 
-export function knockDownSomePins(randomFloat, currentFrameScore) {
+export function knockDownSomePins(randomFloat, currentFrameIndex) {
     return {
         type: KNOCK_DOWN_SOME_PINS,
-        randomFloat
+        randomFloat,
+        currentFrameIndex,
     }
 }
