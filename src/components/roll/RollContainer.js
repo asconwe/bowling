@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { knockDownSomePins, applyRollScore } from "../../actions/bowlingActions";
+import { knockDownSomePins, applyRollScore, applySpareAndStrikeExtras } from "../../actions/bowlingActions";
 
 import RollButton from './RollButton';
 import getCurrentFrame from './getCurrentFrame';
+import getFramesScoreAppliesTo from './getFramesScoreAppliesTo';
 
 class RollContainer extends React.Component {
     constructor(props) {
@@ -13,8 +14,11 @@ class RollContainer extends React.Component {
     }
 
     rollBowlingBall() {
-        this.props.onKnockDownSomePins(Math.random(), this.props.currentFrame);
-        this.props.onApplyRollScore(this.props.currentFrame);
+        this.props.onRoll(
+            Math.random(), 
+            this.props.currentFrameIndex,
+            this.props.framesScoreAppliesTo
+        );
     }
 
     render() {
@@ -25,13 +29,24 @@ class RollContainer extends React.Component {
 }
 
 const mapStateToProps = ({ frames, mostRecentRollScore }) => {
+    const currentFrameIndex = getCurrentFrame(frames);
     return {
-        currentFrame: getCurrentFrame(frames),
+        currentFrameIndex,
+        framesScoreAppliesTo: getFramesScoreAppliesTo(currentFrameIndex, frames),
         rollScore: mostRecentRollScore,
     }
 }
 
-export default connect(mapStateToProps, { 
-    onKnockDownSomePins: knockDownSomePins,
-    onApplyRollScore: applyRollScore,
-})(RollContainer);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onRoll: (randomFloat, currentFrameIndex, framesScoreAppliesTo) => {
+            dispatch(knockDownSomePins(randomFloat, currentFrameIndex));
+            dispatch(applyRollScore(currentFrameIndex))
+            framesScoreAppliesTo.forEach(frameIndex => {
+                dispatch(applySpareAndStrikeExtras(frameIndex))
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RollContainer);
