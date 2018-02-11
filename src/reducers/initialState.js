@@ -1,5 +1,5 @@
 export default {
-	mostRecentRollScore: undefined;
+	mostRecentRollScore: undefined,
 	currentFrameIndex: 0,
 	currentRollIndex: 0,
 	frames: [

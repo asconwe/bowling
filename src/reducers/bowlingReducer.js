@@ -5,17 +5,25 @@ export default function bowling(state = initialState, action) {
     switch (action.type) {
         case ADVANCE_FRAME:
             const currentFrameIndex = state.currentFrameIndex + 1;
-            return Object.assign({}, state, currentFrameIndex);
+            return Object.assign({}, state, { currentFrameIndex });
+
         case APPLY_ROLL_SCORE:
             const frameIndex = action.frameIndex;
-            const rollIndex = action.rollIndex;
             const targetFrame = state.frames[frameIndex];
+            const rollIndex = targetFrame.filter(score => score !== 0 && score).length;
             const updatedFrame = [...targetFrame.slice(0, rollIndex), action.score, ...targetFrame.slice(rollIndex + 1)];
             const frames = [...state.frames.slice(0, frameIndex), updatedFrame, ...state.frames.slice(frameIndex + 1)];
-            return Object.assign({}, state, frames);
+            const newState = Object.assign({}, state, { frames });
+            console.log('============================')
+            console.log(newState);
+            console.log('============================')
+            return newState;
+
         case KNOCK_DOWN_SOME_PINS:
-            const numberOfPinsKockedDown = Math.floor(randomFloat * (10 - state.currentFrameScore));
+            const remainingPins = 10 - (state.frames[currentFrameIndex][0] || 0);
+            const numberOfPinsKockedDown = Math.floor(action.randomFloat * (remainingPins));
             return Object.assign({}, state, { mostRecentRollScore: numberOfPinsKockedDown })
+
         default:
             return state;
     }

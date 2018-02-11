@@ -14,7 +14,7 @@ export function advanceFrame() {
     }
 }
 
-export function knockDownSomePins(randomFloat) {
+export function knockDownSomePins(randomFloat, currentFrameScore) {
     return {
         type: KNOCK_DOWN_SOME_PINS,
         randomFloat
