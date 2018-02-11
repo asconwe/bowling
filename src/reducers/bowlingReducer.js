@@ -13,11 +13,7 @@ export default function bowling(state = initialState, action) {
             const rollIndex = targetFrame.filter(score => score !== 0 && score).length;
             const updatedFrame = [...targetFrame.slice(0, rollIndex), action.score, ...targetFrame.slice(rollIndex + 1)];
             const frames = [...state.frames.slice(0, frameIndex), updatedFrame, ...state.frames.slice(frameIndex + 1)];
-            const newState = Object.assign({}, state, { frames });
-            console.log('============================')
-            console.log(newState);
-            console.log('============================')
-            return newState;
+            return Object.assign({}, state, { frames });
 
         case KNOCK_DOWN_SOME_PINS:
             const remainingPins = 10 - (state.frames[currentFrameIndex][0] || 0);
