@@ -42,7 +42,7 @@ export default function bowling(state = initialState, action) {
 
 
         case KNOCK_DOWN_SOME_PINS:
-            const remainingPins = 10 - (state.frames[action.currentFrameIndex][0] || 0);
+            const remainingPins = 10 - (action.frame[0] || 0);
             const numberOfPinsKockedDown = Math.floor(action.randomFloat * (remainingPins + 1));
             return Object.assign({}, state, { mostRecentRollScore: numberOfPinsKockedDown })
 

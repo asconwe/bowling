@@ -12,29 +12,39 @@
 
 export default (currentFrameIndex, frames) => {
     const frameMinusOne = frames[currentFrameIndex - 1];
+    const frameMinusTwo = frames[currentFrameIndex - 2];
 
-    if (currentFrameIndex > 1) {
-        const frameMinusTwo = frames[currentFrameIndex - 2];
-        // Both previous frames were strikes
-        if (frameMinusOne[0] === 10 && frameMinusTwo[0] === 10) {
-            // And this is the first roll of the frame
-            if (frames[currentFrameIndex][0] === undefined) {
-                return [currentFrameIndex - 1, currentFrameIndex - 2];
+    if (currentFrameIndex < 10) {
+
+        if (currentFrameIndex > 1) {
+            // Both previous frames were strikes
+            if (frameMinusOne[0] === 10 && frameMinusTwo[0] === 10) {
+                // And this is the first roll of the frame
+                if (frames[currentFrameIndex][0] === undefined) {
+                    return [currentFrameIndex - 1, currentFrameIndex - 2];
+                }
             }
         }
+        if (currentFrameIndex > 0) {
+            // The last frame was a strike
+            if (frameMinusOne[0] === 10) {
+                return [currentFrameIndex - 1];
+            }
+            // The last frame was a spare
+            if (frameMinusOne[0] + frameMinusOne[1] === 10) {
+                // And this is the first roll of the frame
+                if (frames[currentFrameIndex][0] === undefined) {
+                    return [currentFrameIndex - 1]
+                }
+            }
+        }
+        return [];
     }
-    if (currentFrameIndex > 0) {
-        // The last frame was a strike
-        if (frameMinusOne[0] === 10) {
-            return [currentFrameIndex - 1];
-        }
-        // The last frame was a spare
-        if (frameMinusOne[0] + frameMinusOne[1] === 10) {
-            // And this is the first roll of the frame
-            if (frames[currentFrameIndex][0] === undefined) {
-                return [currentFrameIndex - 1]
-            }
-        }
+    if (frameMinusTwo[0] === 10) {
+        return [currentFrameIndex - 2]
+    }
+    if (frameMinusOne[0] === 10) {
+        return [currentFrameIndex - 1]
     }
     return [];
 }

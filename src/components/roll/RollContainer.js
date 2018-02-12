@@ -14,11 +14,40 @@ class RollContainer extends React.Component {
     }
 
     rollBowlingBall() {
-        this.props.onRoll(
-            Math.random(), 
-            this.props.currentFrameIndex,
-            this.props.framesScoreAppliesTo
-        );
+        const currentFrameIndex = this.props.currentFrameIndex;
+        const scoreFactor = this.props.scoreFactor
+            ? this.props.scoreFactor()
+            : Math.random();
+        const framesScoreAppliesTo = this.props.framesScoreAppliesTo;
+        if (currentFrameIndex < 10) {
+            return this.props.onRoll(
+                scoreFactor,
+                currentFrameIndex,
+                this.props.frames[currentFrameIndex],
+                framesScoreAppliesTo
+            );
+        }
+        
+        const lastFrame = this.props.frames[9];
+        const lastExtra = this.props.spareAndStrikeExtras[9];
+        if (lastFrame[0] === 10 && lastExtra[1] === undefined) {
+            if (lastExtra[0] === 10) {
+                return this.props.onRollAfterExtraStrike(scoreFactor)
+            }
+            console.log(currentFrameIndex, 'here')
+            return this.props.onExtraRoll(
+                scoreFactor,
+                lastExtra,
+                framesScoreAppliesTo,
+            )
+        }
+        if (lastFrame[0] + lastFrame[1] === 10 && lastExtra[0] === undefined) {
+            return this.props.onExtraRoll(
+                scoreFactor,
+                lastExtra,
+                framesScoreAppliesTo,
+            )
+        }
     }
 
     render() {
@@ -28,9 +57,11 @@ class RollContainer extends React.Component {
     }
 }
 
-const mapStateToProps = ({ frames, mostRecentRollScore }) => {
+const mapStateToProps = ({ frames, mostRecentRollScore, spareAndStrikeExtras }) => {
     const currentFrameIndex = getCurrentFrame(frames);
     return {
+        frames,
+        spareAndStrikeExtras,
         currentFrameIndex,
         framesScoreAppliesTo: getFramesScoreAppliesTo(currentFrameIndex, frames),
         rollScore: mostRecentRollScore,
@@ -39,12 +70,24 @@ const mapStateToProps = ({ frames, mostRecentRollScore }) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onRoll: (randomFloat, currentFrameIndex, framesScoreAppliesTo) => {
-            dispatch(knockDownSomePins(randomFloat, currentFrameIndex));
-            dispatch(applyRollScore(currentFrameIndex))
+        onRoll: (scoreFactor, currentFrameIndex, frame, framesScoreAppliesTo, spareAndStrikeExtras) => {
+            dispatch(knockDownSomePins(scoreFactor, frame));
+            dispatch(applyRollScore(currentFrameIndex));
             framesScoreAppliesTo.forEach(frameIndex => {
-                dispatch(applySpareAndStrikeExtras(frameIndex))
-            })
+                dispatch(applySpareAndStrikeExtras(frameIndex));
+            });
+        },
+        onExtraRoll: (scoreFactor, frame, framesScoreAppliesTo) => {
+            dispatch(knockDownSomePins(scoreFactor, frame));
+            dispatch(applySpareAndStrikeExtras(9));
+            framesScoreAppliesTo.forEach(frameIndex => {
+                dispatch(applySpareAndStrikeExtras(frameIndex));
+            });
+        },
+        onRollAfterExtraStrike: (scoreFactor) => {
+            console.log('onRollAfterExtraStrike')
+            dispatch(knockDownSomePins(scoreFactor, [0, undefined]));
+            dispatch(applySpareAndStrikeExtras(9));
         }
     }
 }

@@ -11,7 +11,6 @@ export function getAbsoluteTotal(frames, spareAndStrikeExtras, currentFrameIndex
     return frames.slice(0, currentFrameIndex + 1)
         .reduce((total, scores, index) => {
             const frameTotal = getFrameTotal(scores.concat(spareAndStrikeExtras[index])) + total
-            console.log(frameTotal);
             return frameTotal;
         }, 0)
 }

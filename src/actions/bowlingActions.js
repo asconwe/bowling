@@ -14,10 +14,10 @@ export function applySpareAndStrikeExtras(frameIndex) {
     }
 }
 
-export function knockDownSomePins(randomFloat, currentFrameIndex) {
+export function knockDownSomePins(randomFloat, frame) {
     return {
         type: KNOCK_DOWN_SOME_PINS,
         randomFloat,
-        currentFrameIndex,
+        frame,
     }
 }

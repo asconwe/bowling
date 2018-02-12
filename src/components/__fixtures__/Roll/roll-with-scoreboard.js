@@ -6,7 +6,8 @@ import initialState from '../../../reducers/initialState';
 
 const ScoreboardAndRollButton = () => (
     <div>
-        <RollContainer />
+        Random:<RollContainer />
+        All standing pins:<RollContainer scoreFactor={() => 0.99} />
         <ScoreboardContainer />
     </div>
 )
