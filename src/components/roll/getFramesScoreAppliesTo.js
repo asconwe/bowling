@@ -18,7 +18,7 @@ export default (currentFrameIndex, frames) => {
         // Both previous frames were strikes
         if (frameMinusOne[0] === 10 && frameMinusTwo[0] === 10) {
             // And this is the first roll of the frame
-            if (frames[currentFrameIndex][0] !== undefined) {
+            if (frames[currentFrameIndex][0] === undefined) {
                 return [currentFrameIndex - 1, currentFrameIndex - 2];
             }
         }
