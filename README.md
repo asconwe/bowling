@@ -1,5 +1,14 @@
 # The Babbel Front-End Code Challenge
 
+If you are Babbel, checking in -
+
+First: ``` npm install ```
+Then: ``` npm run cosmos ```
+ 
+ Open up http://localhost:8989/?component=ScoreboardAndRollButton&fixture=roll-with-scoreboard&editor=true to see my progress.
+
+Enjoy!
+
 ## Bowling Challenge
 
 * Please create a repository in GitHub (or similar) so that we can follow your progress. 
