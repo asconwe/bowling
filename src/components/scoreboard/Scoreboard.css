@@ -14,12 +14,12 @@
     height: 100px;
 }
 
-/* .roll.first {
+.total {
+    display: block;
 }
 
-.roll.second {
-} */
-
-.text {
+.clr::after {
+    content: "";
     display: block;
+    clear: both;
 }
