@@ -10,7 +10,7 @@ export default (props) => {
             <div className="second roll">
                 <span>{props.score2}</span>
             </div>
-            <div className="total">
+            <div className="frame-total">
                 {props.total}
             </div>
         </div>
