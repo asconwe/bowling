@@ -5,7 +5,7 @@ If you are Babbel, checking in -
 First: ``` npm install ```
 Then: ``` npm run cosmos ```
  
- Open up http://localhost:8989/?component=ScoreboardAndRollButton&fixture=roll-with-scoreboard&editor=true to see my progress.
+ Open up http://localhost:8989/?component=ScoreboardAndRollButton&fixture=roll-with-CRT to see my progress.
 
 Enjoy!
 
