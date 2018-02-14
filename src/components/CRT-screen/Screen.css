@@ -1,0 +1,11 @@
+.screen {
+    width: 100%;
+    height: 400px;
+    color: white;
+    background: blue;
+}
+
+.tv-svg {
+    widows: 100%;
+    font-family: monospace;
+}
