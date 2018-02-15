@@ -14,6 +14,7 @@ class RollContainer extends React.Component {
     }
 
     rollBowlingBall() {
+        console.log('roll')
         const currentFrameIndex = this.props.currentFrameIndex;
         const scoreFactor = this.props.scoreFactor
             ? this.props.scoreFactor()
@@ -76,6 +77,7 @@ const mapDispatchToProps = (dispatch) => {
             framesScoreAppliesTo.forEach(frameIndex => {
                 dispatch(applySpareAndStrikeExtras(frameIndex));
             });
+
         },
         onExtraRoll: (scoreFactor, frame, framesScoreAppliesTo) => {
             dispatch(knockDownSomePins(scoreFactor, frame));

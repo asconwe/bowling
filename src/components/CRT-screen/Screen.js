@@ -17,7 +17,7 @@ class Screen extends Component {
     }
 
     componentDidMount() {
-        this.setState({interval: setInterval(this.nextKeyFrame, 150)});
+        this.setState({interval: setInterval(this.nextKeyFrame, 250)});
     }
     
     componentWillUnmount() {
@@ -25,7 +25,7 @@ class Screen extends Component {
     }
 
     nextKeyFrame() {
-        if (this.state.keyFrame < 5) {
+        if (this.state.keyFrame < 6) {
             this.setState({
                 keyFrame: this.state.keyFrame + 1
             })
@@ -48,9 +48,9 @@ class Screen extends Component {
                     <BlurFilter id="blur" />
                     <DisplacementFilter id="displace" />
                     <CRTLines id="grid" />
-                    <g>
+                    <g filter="url(#displace)">
                         <rect transform={`translate(0, ${this.state.keyFrame})`}width="100%" height="100%"  fill="url(#grid)"/>
-                        <g transform="translate(70, 140)">
+                        <g transform="translate(40, 140)">
                             {this.props.children}
                         </g>
                     </g>
