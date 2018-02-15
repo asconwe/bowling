@@ -21,7 +21,6 @@ export default function bowling(state = initialState, action) {
                 updatedFrame, 
                 ...state.frames.slice(frameIndex + 1)
             ];
-        
             return Object.assign({}, state, { frames });
 
         case APPLY_SPARE_AND_STRIKE_EXTRAS:

@@ -31,7 +31,7 @@ class ScoreboardContainer extends Component {
 
     render() {
         return (
-            <Scoreboard frames={this.props.frames} spareAndStrikeExtras={this.props.spareAndStrikeExtras} total={getAbsoluteTotal(
+            <Scoreboard name={this.props.name} frames={this.props.frames} spareAndStrikeExtras={this.props.spareAndStrikeExtras} total={getAbsoluteTotal(
                 this.props.frames,
                 this.props.spareAndStrikeExtras,
                 this.props.currentFrameIndex

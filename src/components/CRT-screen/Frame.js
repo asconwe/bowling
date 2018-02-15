@@ -39,8 +39,8 @@ const Frame = props => (
 
 export const TotalFrame = props => (
     <g transform="translate(1200)" stroke="white" fill="none">
-        <rect x="0" y="0" width="100" height="100" />
-        <rect x="0" y="0" width="100" height="100" strokeWidth="3" filter="url(#blur)" />
+        <rect x="0" y="0" width="150" height="100" />
+        <rect x="0" y="0" width="150" height="100" strokeWidth="3" filter="url(#blur)" />
 
         <rect x="0" y="0" width="40" height="40" />
         <rect x="0" y="0" width="40" height="40" strokeWidth="3" filter="url(#blur)" />
