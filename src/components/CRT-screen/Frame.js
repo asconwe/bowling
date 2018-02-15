@@ -14,17 +14,26 @@ const Frame = props => (
         <text id="score1" x="25" y="30" fill="white" fontSize="30">
             {props.score1}
         </text>
-        <use href="#score" filter="url(#blur)" />
+        <text id="score1" x="25" y="30" fill="white" stroke="white" strokeWidth="3" fontSize="30" filter="url(#blur)">
+            {props.score1}
+        </text>
+
 
         <text id="score2" x="65" y="30" fill="white" fontSize="30">
             {props.score2}
-      </text>
-        <use href="#score" filter="url(#blur)" />
+        </text>
+        <text id="score2" x="65" y="30" fill="white" stroke="white" strokeWidth="3" fontSize="30" filter="url(#blur)">
+            {props.score2}
+        </text>
+        
 
         <text id="combined-score" x="55" y="87" fill="white" fontSize="40">
             {props.total}
-      </text>
-        <use href="#score" filter="url(#blur)" />
+        </text>
+        <text id="combined-score" x="55" y="87" fill="white" stroke="white" strokeWidth="3" fontSize="40" filter="url(#blur)">
+            {props.total}
+        </text>
+        
     </g>
 );
 
@@ -42,17 +51,26 @@ export const TotalFrame = props => (
         <text id="score1" x="5" y="30" fill="white" fontSize="30">
             {props.score1}
         </text>
-        <use href="#score" filter="url(#blur)" />
+        <text id="score1" x="5" y="30" fill="white" stroke="white" strokeWidth="3" fontSize="30" filter="url(#blur)">
+            {props.score1}
+        </text>
+
 
         <text id="score2" x="45" y="30" fill="white" fontSize="30">
             {props.score2}
         </text>
-        <use href="#score" filter="url(#blur)" />
+        <text id="score2" x="45" y="30" fill="white" stroke="white" strokeWidth="3" fontSize="30" filter="url(#blur)">
+            {props.score2}
+        </text>
+        
 
         <text id="combined-score" x="55" y="87" fill="white" fontSize="50">
             {props.total}
         </text>
-        <use href="#score" filter="url(#blur)" />
+        <text id="combined-score" x="55" y="87" fill="white" stroke="white" strokeWidth="3" fontSize="50" filter="url(#blur)">
+            {props.total}
+        </text>
+   
     </g>
 );
 
