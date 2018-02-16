@@ -1,6 +1,6 @@
 import React from 'react';
 
-import crtpng from '../../assets/crt.png';
+import crtpng from '../../assets/dmap.png';
 
 export const DisplacementFilter = (props) => (
     <filter id={props.id}>
@@ -16,7 +16,7 @@ export const DisplacementFilter = (props) => (
         <feDisplacementMap
             in2="fisheye"
             in="SourceGraphic"
-            scale="80"
+            scale="100"
             xChannelSelector="R"
             yChannelSelector="A"
         />

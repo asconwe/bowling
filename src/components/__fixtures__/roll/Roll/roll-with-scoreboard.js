@@ -1,7 +1,9 @@
 import React from 'react';
-import RollContainer from '../../roll/RollContainer';
-import ScoreboardContainer from '../../scoreboard/ScoreboardContainer';
-import initialState from '../../../reducers/initialState';
+
+import RollContainer from '../../../roll/RollContainer';
+import ScoreboardContainer from '../../../CRT-screen/ScoreboardContainer';
+import Screen from '../../../CRT-screen/Screen';
+import initialState from '../../../../reducers/initialState';
 
 const RollButton = (props) => <button onClick={props.action}>Roll!</button>
 
@@ -11,7 +13,9 @@ const ScoreboardAndRollButton = () => (
     <div>
         Random:<Roll />
         All standing pins:<Roll scoreFactor={() => 0.99} />
-        <ScoreboardContainer />
+        <Screen>
+            <ScoreboardContainer />
+        </Screen>
     </div>
 )
 

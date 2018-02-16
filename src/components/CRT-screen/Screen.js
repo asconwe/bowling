@@ -31,7 +31,7 @@ class Screen extends Component {
             })
 
         } else {
-           this.setState({
+            this.setState({
                 keyFrame: 1
             })
         }
@@ -56,8 +56,9 @@ class Screen extends Component {
                     </g>
                 </svg>
             </div>
-        );
+        )
     }
 }
 
 export default Screen;
+

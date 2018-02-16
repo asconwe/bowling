@@ -1,7 +1,7 @@
 import React from 'react';
 
-import RollContainer from '../../roll/RollContainer';
-import initialState from '../../../reducers/initialState';
+import RollContainer from '../../../roll/RollContainer';
+import initialState from '../../../../reducers/initialState';
 
 const RollButton = (props) => <button onClick={props.action}>Roll!</button>
 
