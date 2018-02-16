@@ -48,7 +48,7 @@ class Screen extends Component {
                     <BlurFilter id="blur" />
                     <DisplacementFilter id="displace" />
                     <CRTLines id="grid" />
-                    <g filter="url(#displace)">
+                    <g >
                         <rect transform={`translate(0, ${this.state.keyFrame})`}width="100%" height="100%"  fill="url(#grid)"/>
                         <g transform="translate(40, 140)">
                             {this.props.children}

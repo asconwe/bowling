@@ -14,15 +14,20 @@ class ScoreboardContainer extends Component {
     }
 
     renderFrames() {
-        return this.props.frames && this.props.frames.map((scores, index) => (
-            <Frame
-                key={index}
-                index={index}
-                score1={scores[0] !== undefined && scores[0]}
-                score2={scores[1] !== undefined && scores[1]}
-                total={this.runningTotal(index)}
-            />
-        ))
+        return this.props.frames && this.props.frames.map((scores, index) => {
+            const score1 = scores[0] === 10 ? 'X' : scores[0];
+            const score2 = scores[0] + scores[1] === 10 ? '/' : scores[1];
+            return (
+                <Frame
+                    key={index}
+                    index={index}
+                    score1={score1}
+                    score2={score2}
+                    total={this.runningTotal(index)}
+                />
+            )
+            
+        })
     }
 
     runningTotal(index) {

@@ -14,8 +14,8 @@ export default props => {
             </g>
 
             <TotalFrame 
-                score1={props.spareAndStrikeExtras[9] !== undefined && props.spareAndStrikeExtras[9][0]}
-                score2={props.spareAndStrikeExtras[9] !== undefined && props.spareAndStrikeExtras[9][1]} 
+                score1={props.spareAndStrikeExtras[9][0] === 10 ? 'X' : props.spareAndStrikeExtras[9][0]}
+                score2={props.spareAndStrikeExtras[9][1] === 10 ? 'X' : props.spareAndStrikeExtras[9][1]} 
                 total={props.total} />
         </g>
     );

@@ -27,10 +27,10 @@ const Frame = props => (
         </text>
         
 
-        <text id="combined-score" x="55" y="87" fill="white" fontSize="40">
+        <text id="combined-score" x="95" y="87" fill="white" fontSize="40" textAnchor="end">
             {props.total}
         </text>
-        <text id="combined-score" x="55" y="87" fill="white" stroke="white" strokeWidth="3" fontSize="40" filter="url(#blur)">
+        <text id="combined-score" x="95" y="87" fill="white" stroke="white" strokeWidth="3" fontSize="40" textAnchor="end" filter="url(#blur)">
             {props.total}
         </text>
         
@@ -64,10 +64,10 @@ export const TotalFrame = props => (
         </text>
         
 
-        <text id="combined-score" x="55" y="87" fill="white" fontSize="50">
+        <text id="combined-score" x="145" y="87" fill="white" fontSize="50" textAnchor="end">
             {props.total}
         </text>
-        <text id="combined-score" x="55" y="87" fill="white" stroke="white" strokeWidth="3" fontSize="50" filter="url(#blur)">
+        <text id="combined-score" x="145" y="87" fill="white" stroke="white" strokeWidth="3" fontSize="50" textAnchor="end" filter="url(#blur)">
             {props.total}
         </text>
    
