@@ -58,7 +58,7 @@ function Rollable(WrappedComponent) {
         }
     }
     
-    const mapStateToProps = ({ frames, mostRecentRollScore, spareAndStrikeExtras }) => {
+    const mapStateToProps = ({bowling: { frames, mostRecentRollScore, spareAndStrikeExtras }}) => {
         const currentFrameIndex = getCurrentFrame(frames);
         return {
             frames,

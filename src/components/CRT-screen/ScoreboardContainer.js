@@ -47,7 +47,7 @@ class ScoreboardContainer extends Component {
     }
 }
 
-const mapStateToProps = ({ frames, spareAndStrikeExtras }) => (
+const mapStateToProps = ({bowling: { frames, spareAndStrikeExtras }}) => (
     {
         frames,
         currentFrameIndex: getCurrentFrame(frames),
