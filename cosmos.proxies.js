@@ -1,12 +1,12 @@
 import createReduxProxy from 'react-cosmos-redux-proxy';
 import { createStore } from 'redux';
-import bowlingReducer from './src/reducers/bowlingReducer';
+import rootReducer from './src/reducers/rootReducer';
 
 const ReduxProxy = createReduxProxy({
     createStore: (state) => {
       const store = createStore(
-        bowlingReducer,
-        state
+        rootReducer,
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
       )
       return store;
     }
