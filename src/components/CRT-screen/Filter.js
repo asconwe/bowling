@@ -1,6 +1,6 @@
 import React from 'react';
 
-import crtpng from '../../assets/dmap.png';
+import crtpng from '../../assets/dmap4x.png';
 
 export const DisplacementFilter = (props) => (
     <filter id={props.id}>
